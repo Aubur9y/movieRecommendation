@@ -40,16 +40,16 @@ def build_movie_features(movie_path="data/movies.parquet", out_path="data/movies
     le_year = LabelEncoder()
     movies["year_id"] = le_year.fit_transform(movies["year"])
 
-    joblib.dump(le_year, "data/label_year.pkl")  # 保存编码器（可选）
+    joblib.dump(le_year, "data/label_year.pkl")  # 保存编码器
 
     if os.path.exists(out_path):
         os.remove(out_path)
 
     movies.to_parquet(out_path, index=False)
 
-    print(f"✅ 保存电影特征到 {out_path}")
-    print(f"🎭 Genre 维度: {len(genre_list)}")
-    print(f"📆 年份范围: {movies['year'].min()} ~ {movies['year'].max()}")
+    print(f"保存电影特征到 {out_path}")
+    print(f"Genre 维度: {len(genre_list)}")
+    print(f"年份范围: {movies['year'].min()} ~ {movies['year'].max()}")
 
 if __name__ == "__main__":
     build_movie_features()
