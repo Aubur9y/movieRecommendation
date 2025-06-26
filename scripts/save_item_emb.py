@@ -55,7 +55,7 @@ def save_item_embeddings(
         os.remove(output_path)
 
     df.to_parquet(output_path, index=False)
-    print(f"✅ 已保存 item embedding 到 {output_path}")
+    print(f"已保存 item embedding 到 {output_path}")
 
 
 if __name__ == "__main__":
